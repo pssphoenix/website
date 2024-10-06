@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoenix Solutions - Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #fff;
+      background-image: radial-gradient(circle, #d9d9d9 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: #333;
+    }
+
+    header {
+      margin-bottom: 30px;
+    }
+
+    .logo img {
+      max-width: 150px;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img class="logo-dark" src="./images/logo.png" alt="Phoenix Solutions Logo">
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Phoenix Solutions</h1>
+    <p>Soon we will be online, stay tuned!</p>
+
+    <div class="countdown" id="countdown"></div>
+  </main>
+
+  <footer>
+    (c) 2024 Phoenix Solutions
+  </footer>
+
+  <script>
+    function countdownTimer() {
+      const countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+      const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (distance < 0) {
+          clearInterval(timer);
+          document.getElementById("countdown").innerHTML = "We're Live!";
+        }
+      }, 1000);
+    }
+
+    countdownTimer();
+  </script>
+</body>
+
+</html>
